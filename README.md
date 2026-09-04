@@ -54,3 +54,22 @@ techstore-devops/
 No modifique el proyecto antes de iniciar la práctica.
 
 Durante la actividad deberá analizar su estructura, identificar problemas y aplicar las prácticas DevOps indicadas por el docente.
+
+## Integración Continua (CI)
+
+Este proyecto cuenta con un pipeline automatizado de Integración Continua utilizando **GitHub Actions**.
+
+- **Workflow:** `.github/workflows/ci.yml`
+- **Gatillo (Triggers):** Se ejecuta automáticamente en cada `push` o `pull request` hacia la rama `main`.
+- **Acciones:**
+  - Despliega un entorno virtual aislado (`ubuntu-latest`).
+  - Instala las dependencias del proyecto (`npm install`).
+  - Ejecuta la suite de pruebas unitarias (`npm test`).
+
+## Flujo de Trabajo y Revisiones de Código (Code Review)
+
+Para garantizar la calidad del código y la estabilidad del sistema:
+
+1. Queda restringido el envío directo de commits a la rama `main`.
+2. Todo nuevo desarrollo o corrección se realiza en ramas secundarias (`feature/*` o `fix/*`).
+3. Los cambios se integran a `main` únicamente mediante **Pull Requests (PR)** previa aprobación y ejecución exitosa del pipeline de CI.
